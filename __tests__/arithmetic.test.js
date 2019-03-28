@@ -21,14 +21,17 @@ describe('test arithmetic.subtract', () => {
 });
 
 describe('test for improper input', () => {
-  it('input should be type number', () => {
+  it('input disallows strings', () => {
     expect(arithmetic.improperCheck(['yes', 'no'])).toBe(null);
   });
-  it('input should be type number', () => {
+  it('input must be > 1 element long', () => {
     expect(arithmetic.improperCheck([1])).toBe(null);
   });
-  it('input should be type number', () => {
+  it('input disallows booleans', () => {
     expect(arithmetic.improperCheck([2, 'yes', true, 1])).toBe(null);
+  });
+  it('input disallows objects', () => {
+    expect(arithmetic.improperCheck([2, {}, 1])).toBe(null);
   });
 });
 
